@@ -1,9 +1,9 @@
 'use client';
 
+import { useState } from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { Input } from '@/components/ui/Input';
 import { TRUCK_TYPES } from '@/lib/constants';
-import { calculateTotalPrice } from '@/lib/pricing';
 import { FormData, TruckType } from '@/types/form';
 
 interface StepContactProps {
@@ -20,25 +20,14 @@ export function isValidEgyptPhone(raw: string): boolean {
 
 export function StepContact({ formData, onChange }: StepContactProps) {
   const { t } = useLanguage();
+  const [phoneTouched, setPhoneTouched] = useState(false);
 
-  const pricing = formData.truckType
-    ? calculateTotalPrice({
-        truckType: formData.truckType as TruckType,
-        distanceKm: formData.distanceKm,
-        manpowerCount: formData.manpower.enabled ? formData.manpower.count : 0,
-        packaging: formData.packaging,
-        liftCrane: formData.liftCrane,
-      })
-    : null;
-
-  const truck = TRUCK_TYPES.find(t => t.id === formData.truckType);
+  const truck = TRUCK_TYPES.find(tr => tr.id === formData.truckType);
   const datetimeDisplay = formData.moveDate
     ? `${formData.moveDate}${formData.moveTime ? ` at ${formData.moveTime}` : ''}`
     : '—';
 
-  // Show phone error only once the user has typed enough to be evaluatable
-  const phoneTyped = formData.contactPhone.replace(/[\s\-\(\)\.]/g, '').length >= 8;
-  const phoneError = phoneTyped && !isValidEgyptPhone(formData.contactPhone);
+  const phoneError = phoneTouched && !isValidEgyptPhone(formData.contactPhone);
 
   return (
     <div className="p-5 space-y-4">
@@ -50,14 +39,19 @@ export function StepContact({ formData, onChange }: StepContactProps) {
           value={formData.contactName}
           onChange={e => onChange({ contactName: e.target.value })}
           placeholder={t('steps.contact.namePlaceholder')}
+          autoComplete="name"
+          name="contact-name"
         />
         <Input
           label={t('steps.contact.phone')}
           type="tel"
           value={formData.contactPhone}
           onChange={e => onChange({ contactPhone: e.target.value })}
+          onBlur={() => setPhoneTouched(true)}
           placeholder={t('steps.contact.phonePlaceholder')}
-          error={phoneError ? (t('steps.contact.phoneError') || 'Enter a valid Egyptian mobile number (01X XXXX XXXX)') : undefined}
+          autoComplete="tel"
+          name="contact-phone"
+          error={phoneError ? t('steps.contact.phoneError') : undefined}
         />
         <Input
           label={t('steps.contact.email')}
@@ -65,13 +59,11 @@ export function StepContact({ formData, onChange }: StepContactProps) {
           value={formData.contactEmail}
           onChange={e => onChange({ contactEmail: e.target.value })}
           placeholder={t('steps.contact.emailPlaceholder')}
+          autoComplete="email"
+          name="contact-email"
         />
         <div>
-          <label className="flex items-center gap-2 text-sm font-medium text-navy-mid mb-1.5">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="text-orange">
-              <rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="1.5" />
-              <path d="M1 6l6.5 4L14 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-            </svg>
+          <label className="block text-sm font-medium text-navy-mid mb-1.5">
             {t('steps.contact.notes')}
           </label>
           <textarea
@@ -102,15 +94,14 @@ export function StepContact({ formData, onChange }: StepContactProps) {
             label={t('steps.contact.truck')}
             value={truck ? t(`trucks.${truck.labelKey}`) : '—'}
           />
-          <div className="border-t border-border pt-2.5 mt-2.5 flex items-center justify-between">
-            <span className="text-sm font-semibold text-navy">{t('steps.contact.estimatedPrice')}</span>
-            <div className="text-right">
-              <span className="text-lg font-bold text-orange">
-                {pricing ? `${pricing.total} ${t('currency')}` : '—'}
-              </span>
-              <p className="text-[10px] text-muted mt-0.5">{t('steps.contact.dynamicNote')}</p>
-            </div>
-          </div>
+        </div>
+
+        {/* Call-to-confirm notice */}
+        <div className="mt-4 flex items-start gap-3 rounded-xl bg-navy/[0.04] border border-navy/10 px-4 py-3">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-orange shrink-0 mt-0.5">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.72a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/>
+          </svg>
+          <p className="text-xs text-navy/70 leading-relaxed">{t('steps.contact.callNote')}</p>
         </div>
       </div>
     </div>

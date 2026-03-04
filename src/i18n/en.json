@@ -87,9 +87,8 @@
       "to": "To",
       "datetime": "Date & Time",
       "truck": "Truck",
-      "estimatedPrice": "Estimated Price",
-      "dynamicNote": "Final price confirmed on pickup",
-      "submit": "Confirm Booking"
+      "callNote": "We'll give you a call shortly to confirm the price and any additional details before your move.",
+      "submit": "Request Booking"
     },
     "confirmation": {
       "title": "Booking Confirmed!",
