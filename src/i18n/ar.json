@@ -1,0 +1,115 @@
+{
+  "header": {
+    "brand": "trella",
+    "sub": "MOVE"
+  },
+  "hero": {
+    "title": "انقل أي شيء،\nلأي مكان",
+    "subtitle": "اطلب شاحنة في دقائق. نحن نتولى الأمر.",
+    "cta": "احجز شاحنة",
+    "stats_moves": "+5,000",
+    "stats_moves_label": "نقلة ناجحة",
+    "stats_rating": "4.9★",
+    "stats_rating_label": "تقييم العملاء",
+    "stats_time": "< ساعتين",
+    "stats_time_label": "متوسط الاستجابة"
+  },
+  "why": {
+    "title": "لماذا تختار Move by Trella؟",
+    "drivers": "سائقون معتمدون",
+    "drivers_desc": "جميع سائقينا مدربون باحتراف ومتحقق منهم",
+    "ontime": "خدمة في الوقت المحدد",
+    "ontime_desc": "98% من عمليات التوصيل تصل في الموعد المحدد",
+    "insured": "بضائع مؤمنة",
+    "insured_desc": "تأمين شامل على الشحنة لراحة بالك",
+    "tracking": "تتبع في الوقت الفعلي",
+    "tracking_desc": "تابع نقلتك مباشرة من الاستلام للتسليم"
+  },
+  "steps": {
+    "trip": {
+      "title": "تفاصيل الرحلة",
+      "subtitle": "من أين وإلى أين؟",
+      "pickup": "موقع الاستلام",
+      "pickupPlaceholder": "أدخل عنوان الاستلام في القاهرة",
+      "dropoff": "موقع التسليم",
+      "dropoffPlaceholder": "أدخل عنوان التسليم",
+      "date": "التاريخ",
+      "time": "الوقت",
+      "distance": "المسافة التقريبية",
+      "distancePlaceholder": "مثال: 25",
+      "distanceUnit": "كم",
+      "movingWhat": "ماذا تنقل؟",
+      "items": {
+        "furniture": "أثاث",
+        "boxes": "صناديق",
+        "appliances": "أجهزة منزلية",
+        "electronics": "إلكترونيات",
+        "office": "مكتب",
+        "other": "أخرى"
+      },
+      "otherPlaceholder": "صف ما تنقله"
+    },
+    "truck": {
+      "title": "اختر شاحنتك",
+      "subtitle": "اختر الحجم المناسب لنقلتك",
+      "capacity": "السعة",
+      "startingFrom": "تبدأ من",
+      "dynamicPricing": "تسعير ديناميكي",
+      "dynamicPricingDesc": "السعر النهائي قد يتغير حسب المسافة والخدمات الإضافية"
+    },
+    "services": {
+      "title": "خدمات إضافية",
+      "subtitle": "خدمات اختيارية لتسهيل نقلتك",
+      "manpower": "عمالة مساعدة",
+      "manpowerDesc": "عمال محترفون للتحميل والتفريغ",
+      "manpowerUnit": "ج.م / شخص",
+      "packaging": "خدمة التغليف",
+      "packagingDesc": "نغلف أغراضك بأمان",
+      "lift": "رافعة (كرين صغير)",
+      "liftDesc": "للأشياء الثقيلة التي تحتاج رفع ميكانيكي",
+      "people": "أشخاص",
+      "subtotal": "إجمالي الخدمات"
+    },
+    "contact": {
+      "title": "بياناتك",
+      "subtitle": "سنستخدمها للتواصل معك",
+      "name": "الاسم الكامل",
+      "namePlaceholder": "أدخل اسمك الكامل",
+      "phone": "رقم الهاتف",
+      "phonePlaceholder": "+20 XXX XXX XXXX",
+      "notes": "ملاحظات إضافية (اختياري)",
+      "notesPlaceholder": "تعليمات خاصة، تفاصيل البضاعة...",
+      "summary": "ملخص الحجز",
+      "from": "من",
+      "to": "إلى",
+      "datetime": "التاريخ والوقت",
+      "truck": "الشاحنة",
+      "estimatedPrice": "السعر التقديري",
+      "dynamicNote": "يتم تأكيد السعر النهائي عند الاستلام",
+      "submit": "تأكيد الحجز"
+    },
+    "confirmation": {
+      "title": "!تم تأكيد حجزك",
+      "subtitle": "استلمنا طلبك. فريقنا سيتواصل معك قريباً لتأكيد التفاصيل.",
+      "another": "احجز نقلة جديدة"
+    }
+  },
+  "nav": {
+    "back": "رجوع",
+    "next": "متابعة"
+  },
+  "footer": {
+    "copyright": "© 2026 Trella. جميع الحقوق محفوظة."
+  },
+  "trucks": {
+    "dababa": "دبابة",
+    "closed-dababa": "دبابة مغلقة",
+    "jumbo": "جامبو",
+    "closed-jumbo": "جامبو مغلق",
+    "dababa_desc": "مثالية للنقل الصغير والصناديق",
+    "closed_dababa_desc": "نقل آمن للأغراض الثمينة",
+    "jumbo_desc": "مثالية للأثاث والأشياء الكبيرة",
+    "closed_jumbo_desc": "حماية كاملة للنقل الكبير"
+  },
+  "currency": "ج.م"
+}

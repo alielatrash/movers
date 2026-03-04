@@ -1,0 +1,115 @@
+{
+  "header": {
+    "brand": "trella",
+    "sub": "MOVE"
+  },
+  "hero": {
+    "title": "Move Anything,\nAnywhere",
+    "subtitle": "Request a truck in minutes. We handle the heavy lifting.",
+    "cta": "Book a Truck",
+    "stats_moves": "5,000+",
+    "stats_moves_label": "Successful Moves",
+    "stats_rating": "4.9★",
+    "stats_rating_label": "Customer Rating",
+    "stats_time": "< 2hrs",
+    "stats_time_label": "Average Response"
+  },
+  "why": {
+    "title": "Why Choose Move by Trella?",
+    "drivers": "Verified Drivers",
+    "drivers_desc": "All our drivers are professionally trained and background-checked",
+    "ontime": "On-Time Service",
+    "ontime_desc": "98% of our deliveries arrive within the scheduled window",
+    "insured": "Insured Cargo",
+    "insured_desc": "Full insurance coverage for your peace of mind",
+    "tracking": "Real-Time Tracking",
+    "tracking_desc": "Track your move live from pickup to dropoff"
+  },
+  "steps": {
+    "trip": {
+      "title": "Trip Details",
+      "subtitle": "Where and when do you need the truck?",
+      "pickup": "Pickup Location",
+      "pickupPlaceholder": "Enter pickup address in Cairo",
+      "dropoff": "Drop-off Location",
+      "dropoffPlaceholder": "Enter drop-off address",
+      "date": "Date",
+      "time": "Time",
+      "distance": "Estimated Distance",
+      "distancePlaceholder": "e.g. 25",
+      "distanceUnit": "km",
+      "movingWhat": "What are you moving?",
+      "items": {
+        "furniture": "Furniture",
+        "boxes": "Boxes",
+        "appliances": "Appliances",
+        "electronics": "Electronics",
+        "office": "Office",
+        "other": "Other"
+      },
+      "otherPlaceholder": "Describe what you're moving"
+    },
+    "truck": {
+      "title": "Choose Your Truck",
+      "subtitle": "Select the right size for your move",
+      "capacity": "Capacity",
+      "startingFrom": "Starting from",
+      "dynamicPricing": "Dynamic Pricing",
+      "dynamicPricingDesc": "Final price may vary based on distance and additional services"
+    },
+    "services": {
+      "title": "Add-ons",
+      "subtitle": "Optional services to make your move easier",
+      "manpower": "Manpower Support",
+      "manpowerDesc": "Professional movers to help load and unload",
+      "manpowerUnit": "EGP / person",
+      "packaging": "Packaging Support",
+      "packagingDesc": "We'll pack your items safely",
+      "lift": "Lift Support (Mini Crane)",
+      "liftDesc": "For heavy items that need mechanical lifting",
+      "people": "People",
+      "subtotal": "Add-ons subtotal"
+    },
+    "contact": {
+      "title": "Your Details",
+      "subtitle": "We'll use this to contact you",
+      "name": "Full Name",
+      "namePlaceholder": "Enter your full name",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+20 XXX XXX XXXX",
+      "notes": "Additional Notes (Optional)",
+      "notesPlaceholder": "Special instructions, cargo details, etc.",
+      "summary": "Booking Summary",
+      "from": "From",
+      "to": "To",
+      "datetime": "Date & Time",
+      "truck": "Truck",
+      "estimatedPrice": "Estimated Price",
+      "dynamicNote": "Final price confirmed on pickup",
+      "submit": "Confirm Booking"
+    },
+    "confirmation": {
+      "title": "Booking Confirmed!",
+      "subtitle": "We've received your request. Our team will call you shortly to confirm the details.",
+      "another": "Book Another Move"
+    }
+  },
+  "nav": {
+    "back": "Back",
+    "next": "Continue"
+  },
+  "footer": {
+    "copyright": "© 2026 Trella. All rights reserved."
+  },
+  "trucks": {
+    "dababa": "Dababa",
+    "closed-dababa": "Closed Dababa",
+    "jumbo": "Jumbo",
+    "closed-jumbo": "Closed Jumbo",
+    "dababa_desc": "Perfect for small moves & boxes",
+    "closed_dababa_desc": "Protected transport for valuables",
+    "jumbo_desc": "Ideal for furniture & large items",
+    "closed_jumbo_desc": "Full protection for big moves"
+  },
+  "currency": "EGP"
+}

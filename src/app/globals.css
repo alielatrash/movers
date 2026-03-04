@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Navy palette */
+  --color-navy: #161E3C;
+  --color-navy-mid: #303856;
+  --color-navy-light: #E7EBF4;
+
+  /* Orange palette */
+  --color-orange: #E15C14;
+  --color-orange-dark: #BB3600;
+  --color-orange-light: #FDE8D3;
+
+  /* Semantic */
+  --color-error: #D71E4B;
+  --color-warning: #F3BA13;
+  --color-info: #1867E5;
+  --color-success: #0D944E;
+  --color-success-light: #E6F5ED;
+
+  /* Page surfaces — teamtakt style */
+  --color-page: #F4F6FA;
+  --color-surface: #FFFFFF;
+  --color-input-bg: #F0F2F7;
+  --color-border: #E2E6EF;
+  --color-muted: #6B7280;
+  --color-foreground: #161E3C;
+
+  /* Typography */
+  --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-page);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[dir="rtl"] {
+  text-align: right;
+}
