@@ -80,6 +80,7 @@
       "phoneError": "Enter a valid Egyptian mobile number (01X XXXX XXXX)",
       "email": "Email Address",
       "emailPlaceholder": "you@example.com",
+      "emailError": "Enter a valid email address",
       "notes": "Additional Notes (Optional)",
       "notesPlaceholder": "Special instructions, cargo details, etc.",
       "summary": "Booking Summary",

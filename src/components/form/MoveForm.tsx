@@ -12,7 +12,7 @@ import { StepConfirmation } from './StepConfirmation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { calculateTotalPrice } from '@/lib/pricing';
 import { TruckType } from '@/types/form';
-import { isValidEgyptPhone } from './StepContact';
+import { isValidEgyptPhone, isValidEmail } from './StepContact';
 
 const STEP_TITLES_KEY = [
   'steps.trip.title',
@@ -45,7 +45,8 @@ export function MoveForm() {
       case 3:
         return (
           formData.contactName.trim().length > 0 &&
-          isValidEgyptPhone(formData.contactPhone)
+          isValidEgyptPhone(formData.contactPhone) &&
+          (formData.contactEmail === '' || isValidEmail(formData.contactEmail))
         );
       default:
         return true;

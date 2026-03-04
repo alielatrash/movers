@@ -18,9 +18,14 @@ export function isValidEgyptPhone(raw: string): boolean {
   return /^(\+20|0020)?01[0125][0-9]{8}$/.test(clean);
 }
 
+export function isValidEmail(raw: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(raw.trim());
+}
+
 export function StepContact({ formData, onChange }: StepContactProps) {
   const { t } = useLanguage();
   const [phoneTouched, setPhoneTouched] = useState(false);
+  const [emailTouched, setEmailTouched] = useState(false);
 
   const truck = TRUCK_TYPES.find(tr => tr.id === formData.truckType);
   const datetimeDisplay = formData.moveDate
@@ -28,6 +33,7 @@ export function StepContact({ formData, onChange }: StepContactProps) {
     : '—';
 
   const phoneError = phoneTouched && !isValidEgyptPhone(formData.contactPhone);
+  const emailError = emailTouched && formData.contactEmail.length > 0 && !isValidEmail(formData.contactEmail);
 
   return (
     <div className="p-5 space-y-4">
@@ -58,9 +64,11 @@ export function StepContact({ formData, onChange }: StepContactProps) {
           type="email"
           value={formData.contactEmail}
           onChange={e => onChange({ contactEmail: e.target.value })}
+          onBlur={() => setEmailTouched(true)}
           placeholder={t('steps.contact.emailPlaceholder')}
           autoComplete="email"
           name="contact-email"
+          error={emailError ? t('steps.contact.emailError') : undefined}
         />
         <div>
           <label className="block text-sm font-medium text-navy-mid mb-1.5">

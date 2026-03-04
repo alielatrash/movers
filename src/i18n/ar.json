@@ -80,6 +80,7 @@
       "phoneError": "أدخل رقم هاتف مصري صحيح (01X XXXX XXXX)",
       "email": "البريد الإلكتروني",
       "emailPlaceholder": "you@example.com",
+      "emailError": "أدخل بريداً إلكترونياً صحيحاً",
       "notes": "ملاحظات إضافية (اختياري)",
       "notesPlaceholder": "تعليمات خاصة، تفاصيل البضاعة...",
       "summary": "ملخص الحجز",
