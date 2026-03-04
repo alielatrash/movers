@@ -76,9 +76,17 @@ export function StepTruckType({ formData, onChange }: StepTruckTypeProps) {
               <div className="px-3 py-2.5">
                 <h3 className="font-bold text-navy text-xs leading-tight">{t(`trucks.${truck.labelKey}`)}</h3>
                 <p className="text-[10px] text-muted mt-0.5 truncate">{t(`trucks.${truck.descriptionKey}`)}</p>
-                <div className="mt-1.5">
-                  <span className="text-sm font-bold text-orange">{truck.baseFee}</span>
-                  <span className="text-[10px] font-semibold text-muted ml-0.5">{t('currency')}</span>
+                {/* Specs */}
+                <div className="mt-2 flex gap-1">
+                  {[
+                    { label: truck.specs.payload },
+                    { label: truck.specs.volume },
+                    { label: truck.specs.length },
+                  ].map((spec, i) => (
+                    <span key={i} className="flex-1 text-center text-[9px] font-semibold text-navy/60 bg-surface rounded-md py-0.5 px-1 truncate">
+                      {spec.label}
+                    </span>
+                  ))}
                 </div>
               </div>
             </motion.button>

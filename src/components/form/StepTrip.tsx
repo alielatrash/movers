@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useLanguage } from '@/i18n/LanguageContext';
 import { FormData, MOVE_ITEM_OPTIONS, MoveItemType } from '@/types/form';
 import {
@@ -204,7 +204,12 @@ function buildTimeItems(): DrumItem[] {
 }
 
 const DATE_ITEMS = buildDateItems();
-const TIME_ITEMS = buildTimeItems();
+const ALL_TIME_ITEMS = buildTimeItems();
+
+function getTodayStr() {
+  const d = new Date();
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
 
 /* ─── Item icons ─── */
 const ITEM_ICONS: Record<MoveItemType, React.ReactNode> = {
@@ -415,6 +420,28 @@ function MapSection({ formData, onChange }: StepTripProps) {
 export function StepTrip({ formData, onChange }: StepTripProps) {
   const { t } = useLanguage();
 
+  // Filter time items: if today is selected, only show future hours (current hour + 1 min)
+  const timeItems = useMemo(() => {
+    const todayStr = getTodayStr();
+    const selectedDate = formData.moveDate || DATE_ITEMS[0].value;
+    if (selectedDate !== todayStr) return ALL_TIME_ITEMS;
+    const currentHour = new Date().getHours();
+    const filtered = ALL_TIME_ITEMS.filter(item => parseInt(item.value) > currentHour);
+    return filtered.length > 0 ? filtered : ALL_TIME_ITEMS; // fallback if past 10 PM
+  }, [formData.moveDate]);
+
+  // If the currently selected time is no longer valid (e.g. user switched to today
+  // and the saved time is in the past), auto-advance to the first valid slot.
+  useEffect(() => {
+    if (!timeItems.find(i => i.value === formData.moveTime)) {
+      onChange({ moveTime: timeItems[0]?.value ?? '' });
+    }
+  }, [timeItems, formData.moveTime, onChange]);
+
+  const selectedTime = formData.moveTime && timeItems.find(i => i.value === formData.moveTime)
+    ? formData.moveTime
+    : timeItems[0]?.value ?? '';
+
   return (
     <div className="p-4 space-y-3">
       {/* Addresses + Map */}
@@ -460,8 +487,8 @@ export function StepTrip({ formData, onChange }: StepTripProps) {
           />
           <div className="w-px bg-border/40" />
           <DrumColumn
-            items={TIME_ITEMS}
-            selected={formData.moveTime || TIME_ITEMS[2].value}
+            items={timeItems}
+            selected={selectedTime}
             onSelect={v => onChange({ moveTime: v })}
           />
         </div>

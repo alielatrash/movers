@@ -20,6 +20,7 @@ export async function POST(req: NextRequest) {
     liftCrane,
     contactName,
     contactPhone,
+    contactEmail,
     notes,
     estimatedPrice,
   } = data;
@@ -39,6 +40,7 @@ export async function POST(req: NextRequest) {
     <table style="width:100%;border-collapse:collapse;font-size:14px">
       <tr><td style="padding:8px 0;color:#6b7280;width:140px">Customer</td><td style="padding:8px 0;font-weight:600">${contactName}</td></tr>
       <tr><td style="padding:8px 0;color:#6b7280">Phone</td><td style="padding:8px 0;font-weight:600">${contactPhone}</td></tr>
+      ${contactEmail ? `<tr><td style="padding:8px 0;color:#6b7280">Email</td><td style="padding:8px 0">${contactEmail}</td></tr>` : ''}
       <tr><td colspan="2"><hr style="border:none;border-top:1px solid #e5e7eb;margin:8px 0"/></td></tr>
       <tr><td style="padding:8px 0;color:#6b7280">Pickup</td><td style="padding:8px 0">${pickupAddress}</td></tr>
       <tr><td style="padding:8px 0;color:#6b7280">Drop-off</td><td style="padding:8px 0">${dropoffAddress}</td></tr>

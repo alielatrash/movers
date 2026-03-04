@@ -8,6 +8,7 @@ export const TRUCK_TYPES = [
     baseFee: 300,
     emoji: '🚐',
     descriptionKey: 'dababa_desc',
+    specs: { payload: '2T', volume: '12 m³', length: '3.5m' },
   },
   {
     id: 'closed-dababa' as TruckType,
@@ -16,6 +17,7 @@ export const TRUCK_TYPES = [
     baseFee: 400,
     emoji: '🚌',
     descriptionKey: 'closed_dababa_desc',
+    specs: { payload: '2T', volume: '10 m³', length: '3.5m' },
   },
   {
     id: 'jumbo' as TruckType,
@@ -24,6 +26,7 @@ export const TRUCK_TYPES = [
     baseFee: 500,
     emoji: '🚛',
     descriptionKey: 'jumbo_desc',
+    specs: { payload: '4T', volume: '25 m³', length: '5.8m' },
   },
   {
     id: 'closed-jumbo' as TruckType,
@@ -32,6 +35,7 @@ export const TRUCK_TYPES = [
     baseFee: 600,
     emoji: '🚚',
     descriptionKey: 'closed_jumbo_desc',
+    specs: { payload: '4T', volume: '22 m³', length: '5.8m' },
   },
 ] as const;
 

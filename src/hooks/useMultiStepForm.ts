@@ -18,6 +18,7 @@ const initialFormData: FormData = {
   liftCrane: false,
   contactName: '',
   contactPhone: '',
+  contactEmail: '',
   notes: '',
 };
 

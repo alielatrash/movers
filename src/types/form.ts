@@ -29,6 +29,7 @@ export interface FormData {
   // Step 4 — Contact
   contactName: string;
   contactPhone: string;
+  contactEmail: string;
   notes: string;
 }
 

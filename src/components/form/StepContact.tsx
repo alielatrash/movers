@@ -11,6 +11,13 @@ interface StepContactProps {
   onChange: (updates: Partial<FormData>) => void;
 }
 
+// Egyptian mobile: 01X XXXX XXXX (11 digits, 010/011/012/015 prefixes)
+// Accepts with or without +20 / 0020 prefix, with optional spaces/dashes
+export function isValidEgyptPhone(raw: string): boolean {
+  const clean = raw.replace(/[\s\-\(\)\.]/g, '');
+  return /^(\+20|0020)?01[0125][0-9]{8}$/.test(clean);
+}
+
 export function StepContact({ formData, onChange }: StepContactProps) {
   const { t } = useLanguage();
 
@@ -29,6 +36,10 @@ export function StepContact({ formData, onChange }: StepContactProps) {
     ? `${formData.moveDate}${formData.moveTime ? ` at ${formData.moveTime}` : ''}`
     : '—';
 
+  // Show phone error only once the user has typed enough to be evaluatable
+  const phoneTyped = formData.contactPhone.replace(/[\s\-\(\)\.]/g, '').length >= 8;
+  const phoneError = phoneTyped && !isValidEgyptPhone(formData.contactPhone);
+
   return (
     <div className="p-5 space-y-4">
       {/* Contact fields */}
@@ -46,6 +57,14 @@ export function StepContact({ formData, onChange }: StepContactProps) {
           value={formData.contactPhone}
           onChange={e => onChange({ contactPhone: e.target.value })}
           placeholder={t('steps.contact.phonePlaceholder')}
+          error={phoneError ? (t('steps.contact.phoneError') || 'Enter a valid Egyptian mobile number (01X XXXX XXXX)') : undefined}
+        />
+        <Input
+          label={t('steps.contact.email')}
+          type="email"
+          value={formData.contactEmail}
+          onChange={e => onChange({ contactEmail: e.target.value })}
+          placeholder={t('steps.contact.emailPlaceholder')}
         />
         <div>
           <label className="flex items-center gap-2 text-sm font-medium text-navy-mid mb-1.5">
