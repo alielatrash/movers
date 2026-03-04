@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const NOTIFY_EMAIL = process.env.NOTIFICATION_EMAIL ?? '';
 
 export async function POST(req: NextRequest) {
@@ -59,9 +58,10 @@ export async function POST(req: NextRequest) {
 </div>`;
 
   try {
-    if (!NOTIFY_EMAIL) {
-      console.warn('[booking] NOTIFICATION_EMAIL not set — skipping email');
+    if (!NOTIFY_EMAIL || !process.env.RESEND_API_KEY) {
+      console.warn('[booking] RESEND_API_KEY or NOTIFICATION_EMAIL not set — skipping email');
     } else {
+      const resend = new Resend(process.env.RESEND_API_KEY);
       await resend.emails.send({
         from: 'Trella Move <onboarding@resend.dev>',
         to: NOTIFY_EMAIL,
