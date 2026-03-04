@@ -114,5 +114,28 @@
     "jumbo_desc": "مثالية للأثاث والأشياء الكبيرة",
     "closed_jumbo_desc": "حماية كاملة للنقل الكبير"
   },
-  "currency": "ج.م"
+  "currency": "ج.م",
+  "form": {
+    "locations": "مواقع الطلب",
+    "time": {
+      "label": "وقت الاستلام",
+      "now": "الآن (خلال ساعة)",
+      "schedule": "جدولة"
+    },
+    "vehicle": {
+      "title": "اختر مركبتك",
+      "selectPrompt": "اختر شاحنة لمعرفة السعر"
+    },
+    "addons": {
+      "title": "خدمات إضافية (اختياري)"
+    },
+    "contact": {
+      "title": "بياناتك"
+    },
+    "price": {
+      "estimated": "السعر التقديري",
+      "notAvailable": "اختر شاحنة وعناوين",
+      "bookNow": "احجز الآن"
+    }
+  }
 }

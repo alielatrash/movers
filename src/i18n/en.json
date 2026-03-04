@@ -114,5 +114,28 @@
     "jumbo_desc": "Ideal for furniture & large items",
     "closed_jumbo_desc": "Full protection for big moves"
   },
-  "currency": "EGP"
+  "currency": "EGP",
+  "form": {
+    "locations": "Order locations",
+    "time": {
+      "label": "Pickup time",
+      "now": "Now (within 1 hr)",
+      "schedule": "Schedule"
+    },
+    "vehicle": {
+      "title": "Select your vehicle",
+      "selectPrompt": "Choose a truck to see pricing"
+    },
+    "addons": {
+      "title": "Add-ons (optional)"
+    },
+    "contact": {
+      "title": "Your info"
+    },
+    "price": {
+      "estimated": "Estimated price",
+      "notAvailable": "Select truck & addresses",
+      "bookNow": "Book Now"
+    }
+  }
 }
